@@ -25,4 +25,10 @@ Mesmo com esse crescimento, o parâmetro `min_freq=2` impede que palavras muito 
 
 ### 2. A tokenização em nível de palavra é adequada para idiomas como chinês e japonês?
 
-Não. Esses idiomas não utilizam espaços para separar palavras, então a divisão por espaço não funciona. Nesses casos, é necessário usar ferramentas específicas ou bibliotecas específicas. Além disso, muitas abordagens modernas utilizam tokenização por subpalavras, como o Byte Pair Encoding (BPE), que é mais flexível e funciona bem mesmo sem separadores explícitos.
+Não. Esses idiomas não usam espaços para separar palavras, então a tokenização por espaço não funciona. Isso pode causar erros na separação das palavras e prejudicar o treinamento do modelo.
+Em vez disso, o ideal é usar:
+- Tokenização por caractere
+- Segmentadores específicos, como Jieba (chinês) ou MeCab (japonês)
+- Tokenização por subpalavras, como Byte Pair Encoding (BPE), usada em modelos como BERT e GPT
+  
+A própria seção 9.5 menciona que modelos mais avançados usam técnicas de tokenização diferentes da tokenização por palavra.
